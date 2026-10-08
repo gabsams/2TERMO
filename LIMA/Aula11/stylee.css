@@ -1,0 +1,111 @@
+/* Exercicio 1 */
+
+/* .grid-itens{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 43px;
+  list-style: none;
+
+} */
+
+
+/* Exercicio 2 */
+/* .grid-itens{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 43px;
+  list-style: none;
+
+} */
+
+
+/* Exercicio 3 */
+/* .grid-itens{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 43px;
+  list-style: none;
+}
+
+Resposta: A coluna 2 aumenta de tamanho */
+
+
+/* Exercicio 4 */
+
+/* .grid-itens{
+  display: grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap: 43px;
+  list-style: none;
+} */
+
+/* Exercicio 5 */
+/* .grid-itens{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 43px;
+  list-style: none;
+}
+
+/*Ceular*/
+/* @media (max-width: 500px) {
+    .grid-itens {
+        grid-template-columns:repeat(1, 1fr);
+    }
+} */
+
+/*Tablet*/
+/* @media (max-width: 768px) {
+    .grid-itens{
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */
+
+/*Computador*/
+/* @media (min-width: 1024px) {
+    .grid-itens {
+        grid-template-columns: repeat(3, 1fr);
+    } */
+
+
+/* Exercicio 6 */
+
+/* .grid-itens{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(220px,));
+  gap: 43px;
+  list-style: none;
+} */
+
+/* Resposta: Não vi diferença */
+
+
+
+/* DESAFIO 26 */
+/* OPÇÃO 1 */
+/* .grid-empresa{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    list-style: none;
+}
+@media (max-width: 900px) {
+    .grid-teste {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 700px) {
+    .grid-teste {
+        grid-template-columns: 1fr;
+    }
+} */
+
+/* OPÇÃO 2 */
+/* .grid-empresa{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(220px,));
+  gap: 43px;
+  list-style: none;
+} */
+
+/* RESPOSTA: Eu escolheria a segunda opção, pois é mais fácil de usar */

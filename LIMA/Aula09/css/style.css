@@ -1,0 +1,176 @@
+
+head{
+font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5px;
+    border: 20px solid #AD835E;
+    background-color: #AD835E;
+    border: 10px;
+    padding: 20px; ;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+a{
+    text-align: center;
+    color: #000000;
+    background-color:#AD835E ;
+
+
+}
+    
+h1{
+font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5px;
+    border: 20px solid #AD835E;
+    background-color: #AD835E;
+    border: 10px;
+    padding: 20px; ;
+    
+}
+
+.id{
+    background-color: #E5DBD0;
+}
+
+
+.cabecalho{
+    display: flex;
+    gap: 80px;
+    flex-wrap: wrap;
+    list-style:none ;
+    margin: 0;
+    background-color: #AD835E;
+    justify-content: right;  
+}
+
+
+
+/* 
+.menu{
+      display: flex;
+    flex-direction: row;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+    padding: 0 ;
+    margin: 0;
+}
+    
+    
+font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5px;
+    border: 20px solid #E5DBD0;
+    background-color: #E5DBD0;
+    border: 10;
+    padding: 20px;
+} */
+
+button{
+    background-color: #AD835E;
+    padding: 20;
+}
+
+    
+.sobre-conteudo{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5;
+    border: 20px solid #DECEBE;
+    background-color: #DECEBE;
+    padding: 20;
+}
+
+.cafes-conteudo{
+     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5;
+    border: 20px solid #CEA883;
+    background-color: #CEA883;
+    border: 10;
+    padding: 20;
+}
+
+
+.ambiente-conteudo{
+  font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 30;
+    border: 20px solid #B18759;
+    background-color: #B18759;
+    border: 10;
+}
+
+
+.contato-conteudo{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 30;
+    border: 20px solid #F0EBE7;
+    background-color: #F0EBE7;
+    border: 10;
+}
+
+
+footer{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 30;
+    border: 20px solid #CEA883;
+    background-color: #CEA883;
+    border: 10;
+
+}
+
+
+
+
+
+ /* font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5px;
+    border: 20px solid #AD835E;
+    background-color: #AD835E;
+    border: 10px;
+    padding: 20px; 
+
+     background-color: #AD835E;
+    text-align: right;
+    margin: 5px;
+    padding: 20px;
+    
+} */
+
+
+.lista-cafe {
+    display: grid;
+    grid-template-columns:
+    repeat( auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+
+.grid-img{
+    display: grid;
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: repeat(autofit, minmax(300px, 1fr));
+    gap: 23px;
+    list-style: none;
+    padding: 0;
+}
