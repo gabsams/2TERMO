@@ -166,7 +166,7 @@ footer{
 }
 
 
-.grid-img{
+.lista-cafe{
     display: grid;
     /* grid-template-columns: repeat(2, 1fr); */
     grid-template-columns: repeat(autofit, minmax(300px, 1fr));
@@ -174,3 +174,6 @@ footer{
     list-style: none;
     padding: 0;
 }
+
+
+
