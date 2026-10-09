@@ -97,11 +97,12 @@ INSERT INTO categoria (nome) VALUES
 
 
 INSERT INTO produto (nome,preco,id_categoria,ativo) VALUES
-('Bebidas Geladas', 7.00,2, TRUE),
-('Cafés',8.00,1,TRUE),
-('Sobremesas',9.00,5, TRUE),
+('Bebidas Geladas', 23.00,1, TRUE),
+('Cafés',8.00,2,TRUE),
+('Sobremesas',24.00,3, TRUE),
 ('Salgados',5.00, 4, TRUE),
-('Bebidas Quentes', 8.00, 3,TRUE);
+('Bebidas Quentes', 8.00, 5,TRUE);
+
 
 
 INSERT INTO pedido(data_pedido,status_pedido,valor_total,id_cliente) VALUES
@@ -157,6 +158,8 @@ WHERE id_cliente = 8;
 DELETE FROM cliente
 WHERE id_cliente = 8;
 
+DELETE FROM produto
+WHERE preco;
 
 --CONSULTAR DADOS NO BD
 SELECT * FROM Cliente;

@@ -77,7 +77,8 @@ SELECT * FROM categoria;
 
 -- 9. Aumente em 8% o preço dos produtos da categoria 'Especiais da Casa'.
 
-
+UPDATE preco
+SET status_pedido
 
 -- 10. Altere o status do pedido criado para 'PREPARANDO'.
 
