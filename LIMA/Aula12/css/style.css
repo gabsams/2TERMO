@@ -1,0 +1,284 @@
+/* VÁRIAVEIS PARA FORMATAÇÃO GERAL
+CRIAÇÃO DE LAYOUT DE CORES */
+:root{
+    /* PALETA DE CORES */
+    --espresso: #AD835E;
+    --cafe:#E5DBD0;
+    --caramelo:#be8858c5;
+    --creme:#F3E6D7;
+    --texto:#1E140F;
+    --branco:#ffffff;
+    --marfim:rgba(235, 207, 183, 0.781);
+}
+
+
+
+
+
+head{
+font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5px;
+    border: 20px solid #AD835E;
+    background-color: #AD835E;
+    border: 10px;
+    padding: 20px; ;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: var(--texto);
+    background-color: var(--marfim);
+    line-height: 1.6;
+
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+/* FORMATAÇÃO DE FONTES E TAMANHOS */
+
+h1, h2, h3{
+    margin-top: 0;
+    color: var(--espresso);
+}
+h1{
+    font-size: 3rem;
+    line-height: 1.1;
+}
+h2{
+    font-size: 2rem;
+}
+
+h3{
+    font-size: 1.25rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+a{
+    text-align: center;
+    color: #000000;
+    background-color:#AD835E ;
+
+
+}
+    
+h1{
+font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5px;
+    border: 20px solid #AD835E;
+    background-color: #AD835E;
+    border: 10px;
+    padding: 20px; ;
+    
+}
+
+.id{
+    background-color: #E5DBD0;
+}
+
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--espresso);
+    padding: 20px 8%;  
+}
+
+
+
+
+.menu{
+      display: flex;
+    gap: 23px;
+    list-style-type: none;
+    align-items: center;
+    padding: 0 ;
+    margin: 0;
+}
+    
+.menu a  {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu a:hover{
+    color: var(--caramelo);
+}
+
+
+.menu a:focus-visible{
+    outline: 3px solid var(--caramelo)
+}
+
+
+.banner {
+    display:flex;
+    align-items: center;
+    background-color: var(--creme);
+    gap: 48px;
+    padding: 80px 8%;
+}
+
+.banner-conteudo, .banner-imagem{
+    flex: 1;
+}
+.banner-imagem{
+    margin: 0;
+}
+
+.banner-imagem img{
+    width: 100;
+    border-radius: 18px;
+}
+
+.btn-principal{
+    display: inline-block;
+    margin-top:16px;
+    padding:12px 24px;
+    background-color: var(--caramelo);
+    color:var(--branco);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.btn-principal:hover{
+    background-color: var(--cafe);
+}
+
+
+.btn-principal{
+    transition: background-color 0.2s ease;
+}
+
+
+/* font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5px;
+    border: 20px solid #E5DBD0;
+    background-color: #E5DBD0;
+    border: 10;
+    padding: 20px;
+} */ */
+
+button{
+    background-color: #AD835E;
+    padding: 20;
+}
+
+    
+.sobre-conteudo{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5;
+    border: 20px solid #DECEBE;
+    background-color: #DECEBE;
+    padding: 20;
+}
+
+.cafes-conteudo{
+     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5;
+    border: 20px solid #CEA883;
+    background-color: #CEA883;
+    border: 10;
+    padding: 20;
+}
+
+
+.ambiente-conteudo{
+  font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 30;
+    border: 20px solid #B18759;
+    background-color: #B18759;
+    border: 10;
+}
+
+
+.contato-conteudo{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 30;
+    border: 20px solid #F0EBE7;
+    background-color: #F0EBE7;
+    border: 10;
+}
+
+
+footer{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 30;
+    border: 20px solid #CEA883;
+    background-color: #CEA883;
+    border: 10;
+
+}
+
+
+
+
+
+ /* font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 5px;
+    border: 20px solid #AD835E;
+    background-color: #AD835E;
+    border: 10px;
+    padding: 20px; 
+
+     background-color: #AD835E;
+    text-align: right;
+    margin: 5px;
+    padding: 20px;
+    
+} */
+
+
+.lista-cafe {
+    display: grid;
+    grid-template-columns:
+    repeat( auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+
+.lista-cafe{
+    display: grid;
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: repeat(autofit, minmax(300px, 1fr));
+    gap: 23px;
+    list-style: none;
+    padding: 0;
+}
+
+
+

@@ -78,7 +78,8 @@ SELECT * FROM categoria;
 -- 9. Aumente em 8% o preço dos produtos da categoria 'Especiais da Casa'.
 
 UPDATE preco
-SET status_pedido
+SET preco = preco * 0.08
+WHERE id_categoria = 12;
 
 -- 10. Altere o status do pedido criado para 'PREPARANDO'.
 
