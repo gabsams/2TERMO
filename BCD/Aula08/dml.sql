@@ -1,249 +1,225 @@
--- Active: 1788519497574@@127.0.0.1@3306@smartcoffe_dml_gabrielli
-DROP DATABASE IF NOT EXISTS SMARTCOFFE_DML_GABRIELLI;
+DROP DATABASE IF EXISTS SMARTCOFFEE_DML_GABRIELLI;
 
-CREATE DATABASE IF NOT EXISTS SMARTCOFFE_DML_GABRIELLI;
+CREATE DATABASE IF NOT EXISTS SMARTCOFFEE_DML_GABRIELLI;
 
-USE SMARTCOFFE_DML_GABRIELLI;
+USE SMARTCOFFEE_DML_GABRIELLI;
 
-CREATE TABLE Cliente(
-    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR (120) NOT NULL,
-    telefone VARCHAR(15),
-    cidade VARCHAR(60) NOT NULL,
-    ativo BOOLEAN NOT NULL DEFAULT TRUE
+CREATE TABLE CLIENTE (
+    ID_CLIENTE INT PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(100) NOT NULL,
+    EMAIL VARCHAR(120) UNIQUE,
+    TELEFONE VARCHAR(15),
+    CIDADE VARCHAR(60) NOT NULL,
+    ATIVO BOOLEAN NOT NULL DEFAULT TRUE
 );
 
-CREATE TABLE categoria(
-    id_categoria INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(60) NOT NULL UNIQUE,
-    preco DECIMAL(10,2) NOT NULL
+CREATE TABLE CATEGORIA (
+    ID_CATEGORIA INT PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(60) NOT NULL UNIQUE
 );
 
-
-
-CREATE TABLE produto(
-    id_produto INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    preco DECIMAL(10,2) NOT NULL,
-    ativo BOOLEAN NOT NULL DEFAULT TRUE,
-    id_categoria INT NOT NULL,
-    CONSTRAINT fk_produto_categoria FOREIGN KEY (id_categoria) REFERENCES categoria (id_categoria)
+CREATE TABLE PRODUTO (
+    ID_PRODUTO INT PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(100) NOT NULL,
+    PRECO DECIMAL(10,2) NOT NULL,
+    ATIVO BOOLEAN NOT NULL DEFAULT TRUE,
+    ID_CATEGORIA INT NOT NULL,
+    CONSTRAINT FK_PRODUTO_CATEGORIA FOREIGN KEY (ID_CATEGORIA) REFERENCES CATEGORIA (ID_CATEGORIA)
 );
 
-
-CREATE TABLE pedido(
-    id_pedido INT PRIMARY KEY AUTO_INCREMENT,
-    data_pedido DATETIME NOT NULL,
-    status_pedido ENUM('ABERTO','PREPARADO','FINALIZADO','CANCELADO') NOT NULL,
-    valor_total DECIMAL (10,2) NOT NULL DEFAULT 0.00,
-    id_cliente INT NOT NULL,
-    CONSTRAINT fk_pedido_cliente FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente)
+CREATE TABLE PEDIDO (
+    ID_PEDIDO INT PRIMARY KEY AUTO_INCREMENT,
+    DATA_PEDIDO DATETIME NOT NULL,
+    STATUS_PEDIDO ENUM('ABERTO','PREPARANDO','FINALIZANDO','CANCELADO') NOT NULL,
+    VALOR_TOTAL DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    ID_CLIENTE INT NOT NULL,
+    CONSTRAINT FK_PEDIDO_CLIENTE FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTE (ID_CLIENTE)
 );
 
-CREATE TABLE item_pedido(
-    id_item INT PRIMARY KEY AUTO_INCREMENT,
-    id_pedido INT NOT NULL,
-    id_produto INT NOT NULL,
-    quantidade INT NOT NULL,
-    preco_unitario DECIMAL(10,2) NOT NULL,
-    observacao VARCHAR(150),
-    CONSTRAINT fk_item_pedido FOREIGN KEY (id_pedido) REFERENCES pedido (id_pedido)
+CREATE TABLE ITEM_PEDIDO (
+    ID_ITEM INT PRIMARY KEY AUTO_INCREMENT,
+    ID_PEDIDO INT NOT NULL,
+    ID_PRODUTO INT NOT NULL,
+    QUANTIDADE INT NOT NULL,
+    PRECO_UNITARIO DECIMAL(10,2) NOT NULL,
+    OBSERVACAO VARCHAR(150),
+    CONSTRAINT FK_ITEM_PEDIDO FOREIGN KEY (ID_PEDIDO) REFERENCES PEDIDO (ID_PEDIDO),
+    CONSTRAINT FK_ITEM_PRODUTO FOREIGN KEY (ID_PRODUTO) REFERENCES PRODUTO (ID_PRODUTO)
 );
 
-CREATE TABLE forma_pagamento(
-    id_forma_pagamento INT PRIMARY KEY AUTO_INCREMENT ,
-    descricao VARCHAR(40) NOT NULL UNIQUE
+CREATE TABLE FORMA_PAGAMENTO (
+    ID_FORMA_PAGAMENTO INT PRIMARY KEY AUTO_INCREMENT,
+    DESCRICAO VARCHAR(40) NOT NULL UNIQUE
 );
 
-CREATE TABLE pagamento(
-    id_pagamento INT PRIMARY KEY AUTO_INCREMENT,
-    id_pedido INT NOT NULL,
-    id_forma_pagamento INT NOT NULL,
-    valor DECIMAL(10,2) NOT NULL,
-    data_pagamento DATETIME,
-    CONSTRAINT fk_pagamento_pedido FOREIGN KEY (id_pedido) REFERENCES pedido (id_pedido),
-    CONSTRAINT fk_pagamento_forma_pagamento FOREIGN KEY (id_forma_pagamento) REFERENCES forma_pagamento (id_forma_pagamento)
+CREATE TABLE PAGAMENTO(
+    ID_PAGAMENTO INT PRIMARY KEY AUTO_INCREMENT,
+    ID_PEDIDO INT NOT NULL,
+    ID_FORMA_PAGAMENTO INT NOT NULL,
+    VALOR DECIMAL(10,2) NOT NULL,
+    DATA_PAGAMENTO DATETIME,
+    CONSTRAINT FK_PAGAMENTO_PEDIDO FOREIGN KEY (ID_PEDIDO) REFERENCES PEDIDO (ID_PEDIDO),
+    CONSTRAINT FK_PAGAMENTO_FORMA_PAGAMENTO FOREIGN KEY (ID_FORMA_PAGAMENTO) REFERENCES FORMA_PAGAMENTO (ID_FORMA_PAGAMENTO)
 );
 
-
---INSERINDO DADOS NO BD
-
-INSERT INTO cliente(nome,email,telefone,cidade,ativo) VALUES
-('Arthur Nunes','arthur@email.com','1999999991','Rondonia',TRUE),
-('Beatriz Raissa','beatriz@email.com','1999999991','Limeira',TRUE),
+-- INSERINDO DADOS NO BD
+INSERT INTO cliente (nome,email,telefone,cidade,ativo) VALUES
+('Livia Stein', 'livia@email.com','1999999000','Limeira',TRUE),
+('Arthur Nunes','arthur@email.com','1999999901','Rondonia',TRUE),
+('Beatriz Raissa','beatriz@email.com','1999999902','Limeira',TRUE),
+('Dandara Dias', 'dandara@email.com','1998230450','Limeira',TRUE),
 ('Davi Ferreira','davi@email.com',NULL,'Limeira',TRUE),
-('Francisco Magri','chico@email.com','1999999994','Limeira',TRUE),
-('Franz Kramer','franz@email.com','1999999994','Limeira',TRUE),
-('Gabriel Nouqueira','gabriel@email.com','1999999995','Limeira',TRUE),
-('Gabrielli Araujo','gabrielli@email.com','1999999996','Americana',TRUE),
-('Isabella Alves','isabella@email.com',NULL,'Rondonia',TRUE),
-('Keynan Santos','keynan@email.com','1999999998','Santos',TRUE),
-('Larissa Ramires','larissa@email.com','1999999998','Limeira',TRUE),
-('Leonardo Dia','leonardo@email.com','1999999999','Valinhos',TRUE),
+('Felipe Rodrigues','felipe@email.com',NULL,'Limeira',TRUE),
+('Francisco Magri','chico@email.com','1999999903','Limeira',TRUE),
+('Franz Kramer','franz@email.com','1999999904','Limeira',TRUE),
+('Gabriel Nogueira','gabriel@email.com','1999999905','Limeira',TRUE),
+('Gabrielli Araujo','gabrielli@email.com','1999999906','Americana',TRUE),
+('Isabella Alves','isabella@email.com',NULL,'Limeira',TRUE),
+('Keynan Santos','keynan@email.com','1999999907','Santos',TRUE),
+('Larissa Ramires','larissa@email.com','1999999908','Limeira',TRUE),
+('Leonardo Dias','leonardo@email.com','1999999909','Valinhos',TRUE),
 ('Luana Lima','luana@email.com','1999999910','Limeira',TRUE),
-('Luccas manfredi','luccas@email.com','1999999910','Limeira',TRUE),
-('Livia Stein','livia@email.com','1999999991','Campinas',TRUE),
-('Dandara Dias','dandara@gmail.com','1999999993','Limeira',TRUE);
+('Luccas Manfredi','lucas@email.com','1999999911','Campinas',TRUE);
+
+INSERT INTO CATEGORIA (NOME) VALUES ('DOCES');
+SET @id_doces = LAST_INSERT_ID();
+
+-- 1. Insere 'DOCES' se não existir
+INSERT IGNORE INTO CATEGORIA (NOME) VALUES ('DOCES');
+
+-- 2. Pega o ID exato da categoria 'DOCES' existente no banco
+SET @id_doces = (SELECT id_categoria FROM CATEGORIA WHERE NOME = 'DOCES' LIMIT 1);
+
+-- 3. Insere os produtos (usando o ID dinâmico @id_doces para o Bolo)
+INSERT IGNORE INTO PRODUTO (NOME, PRECO, ATIVO, ID_CATEGORIA) VALUES
+('Café Tradicional', 7.00, TRUE, 1), 
+('Bolo', 50.00, TRUE, @id_doces), 
+('Milk-Shake', 12.00, TRUE, 2), 
+('Chá', 7.00, TRUE, 3), 
+('Misto quente', 10.00, TRUE, 4);
 
 
 
-INSERT INTO categoria(nome) VALUES
-('Cafés'),('Bebidas Geladas'),('Bebidas Quentes'),('Salgados'),('Sobremesas'),
-('Combo');
+INSERT INTO PRODUTO (NOME, PRECO, ATIVO, ID_CATEGORIA) VALUES
+('Café Tradicional', 7.00, TRUE, 1), 
+('Bolo', 50.00, TRUE, 19), 
+('Milk-Shake', 12.00, TRUE, 2), 
+('Chá', 7.00, TRUE, 3), 
+('Misto quente', 10.00, TRUE, 4);
 
-INSERT INTO categoria (nome) VALUES
-('Doces');
+INSERT INTO PEDIDO (DATA_PEDIDO, STATUS_PEDIDO, VALOR_TOTAL, ID_CLIENTE) VALUES 
+(NOW(), 'FINALIZADO', 0.00, 17);
 
+INSERT INTO forma_pagamento (DESCRICAO) VALUES
+('PIX'), ('DÉBITO'), ('CRÉDITO'), ('DINHEIRO'), ('CARTAO ALIMENTAÇÃO');
 
-INSERT INTO produto (nome,preco,id_categoria,ativo) VALUES
-('Bebidas Geladas', 23.00,1, TRUE),
-('Cafés',8.00,2,TRUE),
-('Sobremesas',24.00,3, TRUE),
-('Salgados',5.00, 4, TRUE),
-('Bebidas Quentes', 8.00, 5,TRUE);
+-------------------------------------------------------------
+-- ATRIBUIR NOMES AOS IDS
+INSERT INTO CATEGORIA (NOME) VALUES ('Combos Extras');
 
+-- Correção: Atribuição correta do último ID gerado à variável
+SET @CATEGORIA = LAST_INSERT_ID();
+SELECT @CATEGORIA;
 
-
-INSERT INTO pedido(data_pedido,status_pedido,valor_total,id_cliente) VALUES
-(NOW(),'FINALIZADO',0.00,11),
-(NOW(),'PREPARADO',0.00, 8),
-(NOW(),'ABERTO',0.00, 12),
-(NOW(),'FINALIZADO',0.00, 14),
-(NOW(),'CANCELADO',0.00,15);
-
-INSERT INTO item_pedido(quantidade, preco_unitario, observacao)
-
-
-INSERT INTO forma_pagamento(id_forma_pagamento, descricao)
-()
-
-INSERT INTO pagamento()
-
-------------------------------------------------------------------------------------------------
---Atribuir nomes aos IDS
-
-INSERT INTO categoria(nome) VALUES
-('Combos Extras');
-
-SET @categorias_novas =(SELECT nome FROM categoria WHERE nome = 'Combos Extras');
-
+-- Correção no nome da variável (categorias_novas)
+SET @categorias_novas = (SELECT NOME FROM CATEGORIA WHERE ID_CATEGORIA = @CATEGORIA);
 SELECT @categorias_novas;
 
+-----------------------------------------
+SELECT * FROM CATEGORIA;
+SELECT * FROM PEDIDO;
 
+-- ATUALIZANDO OU MODIFICANDO DADOS NO BD
+-- LEMBRAR DE SEMPRE EXECUTAR O SELECT PARA ATUALIZAR (UPDATE)
+-- E NUNCA JAMAIS NEVER FAÇA UM UPDATE SEM WHERE
 
-
-
-
-SELECT * FROM pedido;
-SET @categoria = LAST_INSERT_ID();
-
-SELECT @categoria;
-------------------------------------------------
---ATUALIZANDO OU MODIFICANDO DADOS NO BD
---LEMBRAR DE SEMPRE EXECUTAR O SELECT PARA ATUALIZAR (UPDATE)
---E NUNCA JAMAIS NEVER FAÇA UM UPDATE SEM WHERE😶
---EX 1: Modificando valores individuais
-UPDATE Cliente
-SET telefone = '1988880001'
-WHERE id_cliente = 8
-
---EX 2 : MODIFICANDO VÁRIOS VALORES
+-- EX 1: MODIFICANDO VALORES INDIVIDUAIS
 UPDATE cliente
-SET telefone = '1999999901',
-    cidade = 'Piracicaba'
-WHERE id_cliente = 8;
+SET TELEFONE = '1988880001'
+WHERE ID_CLIENTE = 9; -- Adicionado ponto e vírgula ';'
+
+-- CUIDADO: Este UPDATE sem WHERE altera toda a tabela cliente!
+-- UPDATE cliente SET TELEFONE = '0000000000';
 
 
+-- EX 2: MODIFICANDO VÁRIOS VALORES
+UPDATE CLIENTE
+SET TELEFONE = '1999999901',
+    CIDADE = 'PIRACICABA'
+WHERE ID_CLIENTE = 9;
+
+
+-- APAGAR DADOS DA TABELA NO BD
 DELETE FROM cliente
-WHERE id_cliente = 8;
-
-DELETE FROM produto
-WHERE preco;
-
---CONSULTAR DADOS NO BD
-SELECT * FROM Cliente;
-WHERE id_cliente = 8;
-SELECT * FROM categoria;
+WHERE ID_CLIENTE = 9;
 
 
---Procedimento de uma compra
---PASSO 1: REALIAR CADASTRO CLIENTE
+-- CONSULTAR DADOS NO BD
+SELECT * FROM CLIENTE
+WHERE ID_CLIENTE = 9;
 
-INSERT INTO cliente(nome, email, telefone,cidade,ativo) VALUES 
-('Carlos Silva','carlossilva3@gmail.com',19999999999999,'Santos',TRUE);
+SELECT * FROM CATEGORIA;
 
+-- PROCEDIMENTO DE UMA COMPRA
+-- PASSO 1: REALIZAR CADASTRO CLIENTE
+INSERT INTO CLIENTE (NOME, EMAIL, TELEFONE, CIDADE, ATIVO) 
+VALUES ('Carlos Silva', 'carlos.silva3@email.com', '19999999999', 'Santos', TRUE);
 
 SET @cliente_compra = LAST_INSERT_ID();
 
----PASSO 2: REALIZAR O PEDIDO
-
-INSERT INTO pedido (data_pedido,status, valor_total,id_cliente) VALUES
-(NOW(),'ABERTO',0.00,@cliente_compra);
+-- PASSO 2: REALIZAR PEDIDO
+INSERT INTO PEDIDO (DATA_PEDIDO, STATUS_PEDIDO, VALOR_TOTAL, ID_CLIENTE) 
+VALUES (NOW(), 'ABERTO', 0.00, @cliente_compra);
 
 SET @pedido_compra = LAST_INSERT_ID();
 
---PASSO 3: INSERINDO ITENS
+-- PASSO 3: INSERINDO ITENS
+INSERT INTO item_pedido (ID_PEDIDO, id_produto, quantidade, preco_unitario) 
+VALUES 
+(@pedido_compra, 4, 1, 13.00), 
+(@pedido_compra, 3, 1, 9.00);
 
-INSERT INTO item_pedido(id_pedido, id_produto, quantidade, preco_unitario) VALUES
-(@pedido_compra,4,1,13.00), (@pedido_compra,9,1,9.00);
-
-
---PASSO 4- ATUALIZANDO TOTAL E STATUS
-
+-- PASSO 4 - ATUALIZANDO TOTAL E STATUS
 UPDATE pedido
-SET valor_total = 22.00,
-    status= 'PREPARANDO'
+SET VALOR_TOTAL = 22.00,
+    STATUS_PEDIDO = 'preparando'
 WHERE id_pedido = @pedido_compra;
 
---PASSO 5- REGISTRAR PAGAMENTO
+-- PASSO 5 - REGISTRAR PAGAMENTO
+INSERT INTO pagamento (id_pedido, id_forma_pagamento, valor, data_pagamento) 
+VALUES (@pedido_compra, 2, 22.00, NOW());
 
-INSERT INTO pagamento(id_pedido,id_forma_pagamento,valor,data_pagamento,valor,data_pagamento)VALUES
-(@pedido_compra,2,22.00,NOW());
-
-
---PASSO 6 - CONSULAR O PEDIDO E RESULTADO
-
-SELECT p.id_pedido,
-c.nome AS Nome_Cliente,
-p.status AS Status_Pedido,
-p.valor_total AS Compra_Total
+-- PASSO 6 - CONSULTAR PEDIDO E RESULTADO
+SELECT P.ID_PEDIDO,
+       c.nome AS Nome_Cliente,
+       p.status_pedido AS Status_Pedido,
+       p.valor_total AS Compra_Total
 FROM pedido p
 JOIN cliente c ON c.id_cliente = p.id_cliente
 WHERE p.id_pedido = @pedido_compra;
 
-
-----PASSO 7 - RELATORIO
-
-
---TRANSAÇÕES - SEGURANÇA PARA DML
-
+-- TRANSAÇÕES - SEGURANÇA PARA DML
 START TRANSACTION;
 
 UPDATE produto
 SET preco = preco * 2.80
 WHERE id_categoria = 1;
 
-
 SELECT id_produto, nome, preco
 FROM produto
-WHERE  id_categoria = 1;
---DESFAZ O QUE FIZEMOS ERRADO OU VOLTA UMA TRANSÇÃO
+WHERE id_categoria = 1;
 
-ROLLBACK;
---VALIDA O PROCEDIMENTO DE TRANSAÇÃO
-
-COMMIT;
+-- Cancele as alterações com ROLLBACK ou confirme com COMMIT (use um ou outro)
+ROLLBACK; 
+-- COMMIT;
 
 START TRANSACTION;
 
-UPDATE cliente SET cidade = 'Santos' WHERE id_cliente = 121;
+UPDATE cliente 
+SET CIDADE = 'Santos' 
+WHERE id_cliente = 121;
 
 SELECT * FROM cliente WHERE id_cliente = 121;
 
-COMMIT;
-
-ROLLBACK;
-
-
---PROCEDIMENTO DE UMA
+COMMIT; 
+-- ROLLBACK; (Removido após o COMMIT pois não surte efeito)
