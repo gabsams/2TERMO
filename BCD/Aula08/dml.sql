@@ -153,7 +153,6 @@ WHERE ID_CLIENTE = 9;
 DELETE FROM cliente
 WHERE ID_CLIENTE = 9;
 
-
 -- CONSULTAR DADOS NO BD
 SELECT * FROM CLIENTE
 WHERE ID_CLIENTE = 9;
@@ -223,3 +222,5 @@ SELECT * FROM cliente WHERE id_cliente = 121;
 
 COMMIT; 
 -- ROLLBACK; (Removido após o COMMIT pois não surte efeito)
+
+
