@@ -215,20 +215,5 @@ WHERE id_livro IN (2, 3);
 
 
 --24
-START TRANSACTION;
 
-UPDATE LIVRO L
-INNER JOIN EMPRESTIMO E
-    ON L.id_livro = E.id_livro
-SET L.quantidade_disponivel = L.quantidade_disponivel + 1
-WHERE E.id_emprestimo = 1
-  AND E.status_emprestimo ='‘ABERTO';
-
-UPDATE EMPRESTIMO
-SET status_emprestimo = 'DEVOLVIDO',
-    Data_devolucao = CURDATE()
-WHERE id_emprestimo = 1
-  AND status_emprestimo = 'ABERTO';
-
-COMMIT;
 
