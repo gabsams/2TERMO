@@ -1,0 +1,81 @@
+.imagem-intro img {
+    width: 1200;
+    height: 800;
+}
+
+
+.imagem-resp, .imagem-fig {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img{
+    display: block;
+    max-width: 70%;
+    height: auto;
+}
+
+.imagem-rec{
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: center;
+    /* cover- preenche a caixa, aceitando recorte
+    contain- mostra o conteudo inteiro 
+    fill - preenche sem preservar a proporção
+    scale-down - escolhe entre none e contain para evitar ampliar
+ */
+}
+
+.flex{
+    display: flex;
+}
+
+.imagem-capa{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.imagem-ava{
+    width:120px;
+    aspect-ratio:1;
+    object-fit:contain;
+    border-radius: 30%;
+    
+}
+
+
+.imagem-seis{
+    border-radius: 18px;
+    box-shadow: 0 10 px 40px #ff0000;
+    transition: transform .25s ease, filter .25s ease;
+}
+
+.imagem-seis:hover {
+    transform: scale(1.03);
+    filter: blur(10px);
+}
+
+/* Filtros para utilizar
+grayscale(1)
+sepia(.7)
+brightness(.85)
+contrast(1.15)
+saturate(1.2)
+blur(4px) */
+
+
+.imagem01{
+    display: grid;
+    grid-template-columns: repeat(minmax(220px, 1fr));
+    gap: 20px
+}
+
+.imagem{
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 12p;
+}

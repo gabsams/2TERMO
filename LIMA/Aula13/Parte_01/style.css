@@ -1,0 +1,23 @@
+body{
+    color: black;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+.header{
+    background-color: palevioletred;
+    /* display: flex; */
+    padding: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+.bemvindo{
+    background-color:rgb(235, 144, 174);
+    padding: 30px;
+}
+
+
+
