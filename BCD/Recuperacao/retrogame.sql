@@ -78,8 +78,10 @@ INSERT INTO categoria(descricao) VALUES
 
 
 INSERT INTO jogo (titulo, codigo, ano_lancamento, quantidade_disponivel, id_plataforma, id_categoria,desenvolvedora) VALUES
-('League of legends', 92222,)
-('Fall Guys')
+('Minecraft', '92222',2011,10,1,2,'Mojang Studios'),
+('Tetris','22112',1984,43,5,3,'Alexey Pajitnov'),
+('Super Mario Bros',1985,33,4,4,'Nintendo'),
+('The Last of Us',2015,22,4,4)
 
 --09.
 INSERT INTO locacao(id_locacao, data_retirada, data_prevista, data_devolucao,id_cliente, id_jogo, id_plataforma, status_locacao) VALUES
