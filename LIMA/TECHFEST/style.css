@@ -15,6 +15,7 @@ body{
     background-color: #615d97 ;
     margin: 15px;
     border-radius: 5px;
+    text-shadow: 2px 2px 0 #4e483d;
 }
 
 button{
@@ -57,7 +58,7 @@ button{
 }
 
 .Atracoes img{
-    height: 50%;
+    height: 100px;
     display: grid;
     gap: 20%;
     margin: 15px;
@@ -111,12 +112,13 @@ button{
 }
 
 footer{
-    background-color: #615d97;
+    display: flex;
+    background-image: linear-gradient(to right, #ffffff , #a09dbe, #767399);
 }
 
 
 .imagem-inicio{
-    display: grid;
+    display:grid ;
     width: 320px;
     height: 200px;
     background-color: var(--fundo-card);
